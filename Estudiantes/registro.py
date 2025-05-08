@@ -70,3 +70,36 @@ def _procesar_fila_estudiante(fila: Dict[str, str], nota_min: float, nota_max: f
         
     except (ValueError, KeyError):
         return None
+
+def imprimir_estudiantes_ordenados(estudiantes: ListaEstudiantes) -> None:
+    """
+    Ordena a los estudiantes alfabéticamente por nombre y los imprime en formato tabular.
+    
+    Args:
+        estudiantes: Lista de diccionarios con los datos de los estudiantes
+    """
+    if not estudiantes:
+        print("No hay estudiantes para mostrar.")
+        return
+    
+    estudiantes_ordenados = sorted(estudiantes, key=lambda x: x['nombre'])
+    _imprimir_tabla_estudiantes(estudiantes_ordenados)
+
+def _imprimir_tabla_estudiantes(estudiantes: ListaEstudiantes) -> None:
+    """
+    Imprime la tabla formateada de estudiantes.
+    
+    Args:
+        estudiantes: Lista ordenada de estudiantes
+    """
+    max_longitud_nombre = max(len(estudiante['nombre']) for estudiante in estudiantes)
+    padding = 4
+    ancho_nombre = max_longitud_nombre + padding
+    
+    print(f"\n{'NOMBRE':<{ancho_nombre}}{'NOTA':<10}")
+    print("-" * (ancho_nombre + 10))
+    
+    for estudiante in estudiantes:
+        print(f"{estudiante['nombre']:<{ancho_nombre}}{estudiante['nota']:<10.2f}")
+    
+    print("\nTotal de estudiantes:", len(estudiantes))
