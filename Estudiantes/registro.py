@@ -103,3 +103,20 @@ def _imprimir_tabla_estudiantes(estudiantes: ListaEstudiantes) -> None:
         print(f"{estudiante['nombre']:<{ancho_nombre}}{estudiante['nota']:<10.2f}")
     
     print("\nTotal de estudiantes:", len(estudiantes))
+
+
+def calcular_promedio_notas(estudiantes: ListaEstudiantes) -> None:
+    """
+    Calcula la media de las notas de los estudiantes válidos y muestra el resultado.
+    
+    Args:
+        estudiantes: Lista de diccionarios con los datos de los estudiantes
+    """
+    if not estudiantes:
+        print("No hay estudiantes para calcular el promedio.")
+        return
+    
+    notas = [estudiante['nota'] for estudiante in estudiantes]
+    promedio = sum(notas) / len(notas)
+    
+    print(f"\nPromedio de notas: {promedio:.2f}")
