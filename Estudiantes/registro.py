@@ -104,7 +104,6 @@ def _imprimir_tabla_estudiantes(estudiantes: ListaEstudiantes) -> None:
     
     print("\nTotal de estudiantes:", len(estudiantes))
 
-
 def calcular_promedio_notas(estudiantes: ListaEstudiantes) -> None:
     """
     Calcula la media de las notas de los estudiantes válidos y muestra el resultado.

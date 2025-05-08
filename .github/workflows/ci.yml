@@ -1,0 +1,23 @@
+name: Run Student Registry Program
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-program:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+        
+    - name: Display Python version
+      run: python --version
+      
+    - name: Run program
+      run: python main.py

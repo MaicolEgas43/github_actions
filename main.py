@@ -1,3 +1,4 @@
+import Estudiantes.registro as registro
 def main():
     # Cargar estudiantes desde el archivo CSV
     print("Cargando datos de estudiantes...")
@@ -12,4 +13,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
